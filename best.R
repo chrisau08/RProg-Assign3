@@ -1,12 +1,19 @@
-## Write a function called "best" that takes two arguments: the 2-character state and an outcome name.
-## The function is to read from "outcome-of-care-measures.csv" returning a character vector with the
-## hospital name that has the best (lowest) 30-day mortality rate.
-## Sample outcomes are "heart attack", "heart failure", and "pneumonia".
+## Best Hospital in a State
+
+## Input:
+## States are the 2-character format.
+## Acceptable outcome values are "heart attack", "heart failure", and "pneumonia".
+
+## Evaluation:
 ## Hospitals with no data (NA) for an outcome are to be excluded.
 ## Ties in mortality rate should order alphabetically and return the first from that order.
 
+## Source Data:
+## The document, "outcome-of-care-measures.csv", provides the data.
+
 best <- function(state, outcome) {
   ## Read outcome data
+  outcome <- data.frame(read.csv("Data/outcome-of-care-measures.csv", colClasses = "character"))
   
   ## Check that state and outcome are valid entries
   ## If either is invalid then throw an error using the "stop" method.

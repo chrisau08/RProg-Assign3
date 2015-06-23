@@ -1,14 +1,28 @@
-## Rank hospitals in a state by outcome.
+## Rank Hospitals in a State by Outcome.
+
+## Input:
+## States are the 2-character format.
+## Acceptable outcome values are "heart attack", "heart failure", and "pneumonia".
+
+## Evaluation:
+## Hospitals with no data (NA) for an outcome are to be excluded.
+## Ties in mortality rate should order alphabetically and return the first from that order.
+
+## Source Data:
+## The document, "outcome-of-care-measures.csv", provides the data.
 
 rankhospital <- function(state, outcome, num = "best") {
   ## Read outcome data
+  outcome <- data.frame(read.csv("Data/outcome-of-care-measures.csv", colClasses = "character"))
   
   ## Check that state and outcome are valid
   ## If either is invalid then throw an error using the "stop" method.
   ## If state is wrong the message should be "invalid state"
   ## If outcome is wrong the message should be "invalid outcome"
   
-  ## Return hospital name in that state with the given rank
+  ## Return hospital name in that state with the given rank (ie. "best", 20, "worst")
+  ## If number is provided and larger than the number of hospitals in a state then
+  ## return NA for the state.
   
   ## 30-day death rate
 }
